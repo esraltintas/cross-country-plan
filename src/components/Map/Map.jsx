@@ -51,7 +51,7 @@ const Map = () => {
               label={{
                 text: `${index + 1}`,
                 color: "white",
-                backgroundColor: "#0D85EA",
+                backgroundColor: "#383838",
                 padding: "8px",
               }}
               onClick={() => handleMarkerClick(index)}
