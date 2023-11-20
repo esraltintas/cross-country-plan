@@ -1,0 +1,20 @@
+.waypoint-list {
+    padding: 10px;
+    background-color: #383838;
+    font-size: 15px;
+}
+
+.border-line {
+    background-color: #4C4C4C;
+    width: 300px;
+    height: 4px;
+}
+
+.waypoint-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.waypoint-list li {
+    margin-bottom: 10px;
+}

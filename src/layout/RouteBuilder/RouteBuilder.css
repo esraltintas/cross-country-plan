@@ -1,0 +1,9 @@
+.route-builder-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+    height: 700px;
+    border-radius: 3px;
+    border: 2px solid #638B9F;
+    color: #fff
+}
