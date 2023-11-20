@@ -1,13 +1,18 @@
 import React from "react";
 import "./WaypointList.css";
 import Waypoint from "../Waypoint/Waypoint";
+import useMapStore from "../../store/useMapStore";
 
-const WaypointList = ({ waypoints, updateWaypoints }) => {
-  const handleDelete = (index) => {
+const WaypointList = () => {
+  const { waypoints, setWaypoints } = useMapStore();
+
+  /*   const handleDelete = (index) => {
     const newWaypoints = [...waypoints];
     newWaypoints.splice(index, 1);
     updateWaypoints(newWaypoints);
-  };
+  }; */
+
+  console.log("waypointlist", waypoints);
 
   return (
     <div className="waypoint-list">
@@ -16,11 +21,11 @@ const WaypointList = ({ waypoints, updateWaypoints }) => {
       <ul>
         {waypoints.map((waypoint, index) => (
           <li key={index}>
-            <Waypoint title={waypoint.title} />
+            <Waypoint title={`Waypoint ${index + 1}`} />
           </li>
         ))}
       </ul>
-      <button onClick={handleDelete}>Download your Route</button>
+      <button>Download your Route</button>
     </div>
   );
 };

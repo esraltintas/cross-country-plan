@@ -1,0 +1,18 @@
+.waypoint {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    gap: 1.5625rem;
+}
+
+.title-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 0.9375rem;
+
+}
