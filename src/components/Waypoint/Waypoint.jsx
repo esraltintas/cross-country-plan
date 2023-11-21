@@ -10,7 +10,12 @@ const Waypoint = ({ title, onRemove }) => {
         <FontAwesomeIcon icon={faBars} />
         {title && <div className="title">{title}</div>}
       </div>
-      <FontAwesomeIcon icon={faTrash} onClick={onRemove} />
+      <FontAwesomeIcon
+        data-testid="trash-icon"
+        className="trash"
+        icon={faTrash}
+        onClick={onRemove}
+      />
     </div>
   );
 };

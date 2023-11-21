@@ -1,5 +1,4 @@
-// Map.js
-import React, { useState } from "react";
+import React from "react";
 import {
   GoogleMap,
   LoadScript,
@@ -7,6 +6,7 @@ import {
   Polyline,
 } from "@react-google-maps/api";
 import useMapStore from "../../store/useMapStore";
+import { handleMarkerClick, handleMapClick } from "../../utils/mapUtils";
 
 const containerStyle = {
   width: "100%",
@@ -14,34 +14,20 @@ const containerStyle = {
 };
 
 const defaultCenter = {
-  lat: -34.397,
-  lng: 150.644,
+  lat: 52.52,
+  lng: 13.404,
 };
 
 const Map = () => {
   const { waypoints, setWaypoints } = useMapStore();
-
-  const handleMapClick = (event) => {
-    const newWaypoint = {
-      lat: event.latLng.lat(),
-      lng: event.latLng.lng(),
-    };
-
-    setWaypoints([...waypoints, newWaypoint]);
-  };
-
-  const handleMarkerClick = (index) => {
-    const updatedWaypoints = waypoints.filter((_, i) => i !== index);
-    setWaypoints([...updatedWaypoints]);
-  };
 
   return (
     <LoadScript googleMapsApiKey="AIzaSyA9IAcgYgVxaas-K5rXIeiE8LFnotQ2EIc">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={defaultCenter}
-        zoom={10}
-        onClick={handleMapClick}
+        zoom={15}
+        onClick={(event) => handleMapClick(event, waypoints, setWaypoints)}
       >
         {waypoints &&
           waypoints.map((waypoint, index) => (
@@ -54,7 +40,7 @@ const Map = () => {
                 backgroundColor: "#383838",
                 padding: "8px",
               }}
-              onClick={() => handleMarkerClick(index)}
+              onClick={() => handleMarkerClick(waypoints, setWaypoints, index)}
             />
           ))}
         {waypoints.length > 0 && (
@@ -63,7 +49,7 @@ const Map = () => {
             options={{
               strokeColor: "#383836",
               strokeOpacity: 1,
-              strokeWeight: 2,
+              strokeWeight: 3,
             }}
           />
         )}
